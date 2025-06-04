@@ -9,6 +9,11 @@ services:
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
+  goapp:
+    build: ./goapp
+    depends_on:
+      - mysql
+    restart: on-failure
 
 volumes:
   mysql-data:
