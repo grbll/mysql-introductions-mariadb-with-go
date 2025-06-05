@@ -9,10 +9,17 @@ services:
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-padmin" ]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
   goapp:
     build: ./goapp
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     restart: on-failure
 
 volumes:
