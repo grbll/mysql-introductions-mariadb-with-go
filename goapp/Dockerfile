@@ -9,7 +9,7 @@ FROM golang:1.24-alpine
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY go.mod go.sum main.go ./
 
 RUN go mod download
 RUN go build -v -o /usr/local/bin/gobackend ./...

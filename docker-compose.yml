@@ -10,11 +10,10 @@ services:
       - ./init:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-padmin" ]
+      test: [ "CMD-SHELL", "mysql -h localhost -uroot -padmin -e 'SELECT 1'" ]
       interval: 5s
-      timeout: 30s
       retries: 5
-      start_period: 30s
+      timeout: 5s
   goapp:
     build: ./goapp
     depends_on:

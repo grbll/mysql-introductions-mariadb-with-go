@@ -12,5 +12,3 @@ CREATE TABLE IF NOT EXISTS sessions (
   session_user INT,
   FOREIGN KEY (session_user) REFERENCES users(user_id)
 );
-
-SELECT SLEEP(10);
