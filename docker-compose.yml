@@ -2,10 +2,10 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_DATABASE=timestampdb
-      - MYSQL_GO_USER=${MYSQL_GO_USER}
-      - MYSQL_GO_PWD=${MYSQL_GO_PWD}
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: timestampdb
+    ports:
+      - "3306:3306"
     volumes:
       - ./init:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
@@ -20,9 +20,6 @@ services:
       mysql:
         condition: service_healthy
     restart: on-failure
-    environment:
-      - MYSQL_GO_USER=${MYSQL_GO_USER}
-      - MYSQL_GO_PWD=${MYSQL_GO_PWD}
 
 volumes:
   mysql-data:
