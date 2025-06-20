@@ -1,0 +1,3 @@
+[submodule "goapp/go-introductions-rest-api"]
+	path = goapp/go-introductions-rest-api
+	url = git@github.com:grbll/go-introductions-rest-api.git
