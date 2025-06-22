@@ -21,7 +21,8 @@ services:
       mysql:
         condition: service_healthy
     restart: on-failure
-    ports: -8080:8080
+    ports:
+      - 8080:8080
 
   frontend:
     image: nginx:alpine
