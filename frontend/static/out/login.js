@@ -1,9 +1,9 @@
-export function login(name) {
+export function login(email) {
   return fetch("/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: "name=" + encodeURIComponent(name),
+    body: "email=" + encodeURIComponent(email),
   }).then((response) => response.text());
 }

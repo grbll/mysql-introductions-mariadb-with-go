@@ -33,6 +33,7 @@ services:
       - "80:80"
     depends_on:
       - goapp
+    restart: on-failure
 
 volumes:
   mysql-data:

@@ -8,13 +8,14 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS active_sessions (
   session_id INT AUTO_INCREMENT PRIMARY KEY,
-  login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   session_user INT,
+  login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (session_user) REFERENCES users(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS closed_sessions (
   session_id INT PRIMARY KEY,
+  session_user INT,
   login_time TIMESTAMP,
   logout_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (session_user) REFERENCES users(user_id)
