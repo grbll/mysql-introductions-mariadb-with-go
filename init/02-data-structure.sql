@@ -3,7 +3,7 @@ USE timestampdb;
 CREATE TABLE IF NOT EXISTS users (
   user_id INT AUTO_INCREMENT PRIMARY KEY,
   user_email VARCHAR(255) NOT NULL UNIQUE,
-  user_total INT DEFAULT 0
+  user_total_time INT DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS active_sessions (
